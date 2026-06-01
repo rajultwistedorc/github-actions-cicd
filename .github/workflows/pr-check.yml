@@ -1,0 +1,24 @@
+name: PR Check
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install and test
+        run: |
+          pip install -r app/requirements.txt ruff
+          ruff check app/
+          cd app && pytest -v tests/
+
+      - name: Docker build (no push)
+        run: docker build -t github-actions-cicd:pr-${{ github.event.pull_request.number }} .
