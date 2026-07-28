@@ -45,19 +45,3 @@ curl http://localhost:8080/health
 ## License
 
 MIT
-
-## Live Screenshots
-
-### App Health Endpoint
-![Health](screenshots/app-health.png)
-
-### API Endpoint
-![API](screenshots/app-api.png)
-
-## Live Screenshots
-
-### App Health Endpoint
-![Health](screenshots/app-health.png)
-
-### API Endpoint
-![API](screenshots/app-api.png)
